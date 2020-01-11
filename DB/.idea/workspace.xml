@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee8674ed-be68-4d6f-b73a-78889eda035f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/DBmodule.py" beforeDir="false" afterPath="$PROJECT_DIR$/DBmodule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genome-scores.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/genome-tags.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/links.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ratings.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tags.csv" beforeDir="false" />
-    </list>
+    <list default="true" id="ee8674ed-be68-4d6f-b73a-78889eda035f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +24,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../DB" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
