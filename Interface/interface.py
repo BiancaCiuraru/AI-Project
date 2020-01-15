@@ -15,7 +15,11 @@ def draw():
 
 
     searchBar = Entry(master,width = 55)
+    searchBar.insert(0,"Enter Description")
+    searchBar.bind("<FocusIn>",lambda _:searchBar.delete(0, 'end'))
+    
     searchBar.grid(row=0, column=1)
+    
 
     cols = ('Title', 'Genre', 'Description')
     listBox = ttk.Treeview(master, columns=cols, show='headings')
@@ -36,5 +40,7 @@ def user_input(searchBar,listBox,drop):
     searchBarText = searchBar.get()
     listBox.insert("","end", values=("a","b","c")) #aici pui din ce returneaza AI ul , a-primul camp, b-al doilea etc.
     return searchBarText
+
+
 
 draw()
