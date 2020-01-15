@@ -1,16 +1,17 @@
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics.pairwise import linear_kernel
+from nltk.corpus import stopwords
+
+
 
 def make_recommendations(user_input, nr_recommendations):
-
-    df = pd.read_csv("ml-latest/movies_with_tags.csv")
+    df = pd.read_csv("../ml-latest/movies_with_tags.csv")
     df2 = pd.concat([df["tags"], pd.DataFrame([user_input])])
-    vectorizer = CountVectorizer(stop_words='english')
+    vectorizer = CountVectorizer(analyzer='word', min_df=5, stop_words=stopwords.words('english'))
 
     X = vectorizer.fit_transform(df2[0])
-    cosine_sim = cosine_similarity(X[:-1], X[-1])
-
+    cosine_sim = linear_kernel(X[:-1], X[-1])
     similar_movies = list(enumerate(cosine_sim))
     similar_movies.sort(key=lambda x: x[1], reverse=True)
 
@@ -20,7 +21,6 @@ def make_recommendations(user_input, nr_recommendations):
         recommendations.append((df.iloc[movie[0]], movie[1]))
 
     return recommendations
-
 
 
 if __name__ == "__main__":
