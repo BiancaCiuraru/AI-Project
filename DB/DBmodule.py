@@ -7,7 +7,7 @@ df_movies = pd.read_csv('movies.csv', usecols=['movieId', 'title', 'genres'],
 df_ratings = pd.read_csv('ratings.csv', usecols=['userId', 'movieId', 'rating'],
                          dtype={'userId': 'int32', 'movieId': 'int32', 'rating': 'float32'})
 
-df_tags = pd.read_csv('tags.csv', usecols=['userId', 'movieId', 'tag'],
+df_tags = pd.read_csv('../ml-latest/tags.csv', usecols=['userId', 'movieId', 'tag'],
                       dtype={'userId': 'int32', 'movieId': 'int32', 'tag': 'str'})
 
 Inner_Join = pd.merge(df_movies, df_tags, how='inner', on=['movieId', 'movieId'])

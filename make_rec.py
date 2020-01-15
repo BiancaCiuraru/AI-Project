@@ -2,9 +2,9 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-def make_recommendations(user_input, nr_recommendations):
 
-    df = pd.read_csv("ml-latest/movies_with_tags.csv")
+def make_recommendations(user_input, nr_recommendations):
+    df = pd.read_csv("../ml-latest/movies_with_tags.csv")
     df2 = pd.concat([df["tags"], pd.DataFrame([user_input])])
     vectorizer = CountVectorizer(stop_words='english')
 
@@ -20,7 +20,6 @@ def make_recommendations(user_input, nr_recommendations):
         recommendations.append((df.iloc[movie[0]], movie[1]))
 
     return recommendations
-
 
 
 if __name__ == "__main__":
