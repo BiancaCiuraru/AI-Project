@@ -1,8 +1,7 @@
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.metrics.pairwise import linear_kernel
+from sklearn.metrics.pairwise import cosine_similarity
 from nltk.corpus import stopwords
-
 
 
 def make_recommendations(user_input, nr_recommendations):
@@ -11,7 +10,7 @@ def make_recommendations(user_input, nr_recommendations):
     vectorizer = CountVectorizer(analyzer='word', min_df=5, stop_words=stopwords.words('english'))
 
     X = vectorizer.fit_transform(df2[0])
-    cosine_sim = linear_kernel(X[:-1], X[-1])
+    cosine_sim = cosine_similarity(X[:-1], X[-1])
     similar_movies = list(enumerate(cosine_sim))
     similar_movies.sort(key=lambda x: x[1], reverse=True)
 

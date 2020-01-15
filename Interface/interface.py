@@ -7,16 +7,17 @@ import get_description as info
 
 def draw():
     master = Tk()
+    master.title('Movie Recommendations')
     master.geometry("604x253")
     master.resizable(False, False)
 
     style = ttk.Style(master)
     style.theme_use('clam')
-    ttk.Style().configure("Treeview",fieldbackground = "#e7eaef")
-    ttk.Style().configure("Treeview.Heading",background = "#05828e",borderwidth = 0)
+    ttk.Style().configure("Treeview", fieldbackground="#e7eaef")
+    ttk.Style().configure("Treeview.Heading", background="#05828e", borderwidth=0)
 
-    style.configure('TButton', background='#05828e', foreground='black',font = ('Times','9','bold'),borderwidth = 0)
-    style.map("TButton",foreground=[("focus", "black"),('pressed', 'black'), ('active', 'black')],background=[('pressed', '!disabled', '#05828e'), ('active', '#05828e')])
+    style.configure('TButton', background='#05828e', foreground='black', font=('Times', '9', 'bold'), borderwidth=0)
+    style.map("TButton", foreground=[("focus", "black"), ('pressed', 'black'), ('active', 'black')], background=[('pressed', '!disabled', '#05828e'), ('active', '#05828e')])
     
     drop = ttk.Combobox(master, values=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
     drop.set("Nr Results")
@@ -46,13 +47,14 @@ def user_input(searchBar, listBox, drop):
         nr_results = drop.get()
     searchBarText = searchBar.get()
 
-
     i = 0
     for movie in recommendations.make_recommendations(searchBarText, int(nr_results)):
         title = movie[0][1]
         genres = info.get_description_genre(title)[0]
         description = info.get_description_genre(title)[1]
-        if i %2 == 0:
+        if description == 'none':
+            description = 'Description not found! Sorry!'
+        if i % 2 == 0:
             listBox.insert("", "end", values=(title, genres, description))
         else:
             listBox.insert("", "end", values=(title, genres, description))
