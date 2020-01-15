@@ -33,7 +33,6 @@ def user_input(searchBar,listBox,drop):
     nr_results = 10
     if(drop.get()!="Nr Results"):
         nr_results = drop.get()
-    print(nr_results)
     searchBarText = searchBar.get()
     listBox.insert("","end", values=("a","b","c")) #aici pui din ce returneaza AI ul , a-primul camp, b-al doilea etc.
     return searchBarText
